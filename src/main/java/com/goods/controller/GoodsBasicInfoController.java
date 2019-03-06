@@ -16,14 +16,14 @@ import java.awt.print.Book;
 import java.util.List;
 
 @Controller
-@RequestMapping("/goodsbasicinfo") // url:/模块/资源/{id}/细分
+@RequestMapping("/goodsBasicInfo") // url:/模块/资源/{id}/细分
 public class GoodsBasicInfoController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private GoodsBasicInfoService goodsBasicInfoService;
 
-    @RequestMapping(value = "/addgood", method = RequestMethod.POST)
+    @RequestMapping(value = "/addGoodBasicInfo", method = RequestMethod.POST)
     private String list(@RequestBody GoodsBasicInfo goodsBasicInfo, Model model) {
         int result = goodsBasicInfoService.addOne(goodsBasicInfo);
         if (result < 0) {
@@ -36,10 +36,10 @@ public class GoodsBasicInfoController {
         return "list";
     }
 
-    @RequestMapping(value = "/listgoods", method = RequestMethod.GET)
+    @RequestMapping(value = "/listGoodsBasicInfo", method = RequestMethod.GET)
     private String list(Model model) {
         List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
-        model.addAttribute("list", list);
+        model.addAttribute("goodsBasicInfoList", list);
         return "list";
     }
 }
