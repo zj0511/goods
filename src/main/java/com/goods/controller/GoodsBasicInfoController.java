@@ -23,8 +23,13 @@ public class GoodsBasicInfoController {
     @Autowired
     private GoodsBasicInfoService goodsBasicInfoService;
 
-    @RequestMapping(value = "/addGoodBasicInfo", method = RequestMethod.POST)
-    private String list(@RequestBody GoodsBasicInfo goodsBasicInfo, Model model) {
+    @RequestMapping(value = "/addGoodBasicInfo", method = RequestMethod.GET)
+    private String addGoodBasicInfo() {
+        return "goodBasicInfoAdd";
+    }
+
+    @RequestMapping(value = "/certainToAddGoodBasicInfo", method = RequestMethod.POST)
+    private String certainToAddGoodBasicInfo(@RequestBody GoodsBasicInfo goodsBasicInfo, Model model) {
         int result = goodsBasicInfoService.addOne(goodsBasicInfo);
         if (result < 0) {
             model.addAttribute("message", "添加失败");
@@ -37,7 +42,7 @@ public class GoodsBasicInfoController {
     }
 
     @RequestMapping(value = "/listGoodsBasicInfo", method = RequestMethod.GET)
-    private String list(Model model) {
+    private String listGoodsBasicInfo(Model model) {
         List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
         model.addAttribute("goodsBasicInfoList", list);
         return "goodsBasicInfoList";
