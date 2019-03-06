@@ -1,3 +1,7 @@
+com\goods\dto\Result.class
+com\goods\dao\GoodsBasicInfoDao.class
+com\goods\dto\MD5.class
 com\goods\service\impl\GoodsBasicInfoServiceImpl.class
 com\goods\controller\GoodsBasicInfoController.class
+com\goods\entity\GoodsBasicInfo.class
 com\goods\service\GoodsBasicInfoService.class
