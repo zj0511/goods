@@ -1,5 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+%>
 <html>
 <head>
     <title>商品基本信息管理</title>
@@ -8,9 +12,18 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/goodsBasicInfo/addGoodBasicInfo">添加商品信息</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <div class="tab-pane fade in active" id="userList">
-        <form action="/goodsBasicInfo/listGoods" method="get">
+        <form action="<%=basePath%>/goodsBasicInfo/listGoods" method="get">
             <table class="table table-hover table-bordered table-condensed">
                 <tr>
                     <td>序号</td>
