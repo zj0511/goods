@@ -9,23 +9,26 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="<%=path%>/resources/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<%=path%>/resources/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link href="<%=path%>/resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <form class="form-horizontal" role="form" action="TradeServlet" method='post' onsubmit="return check()">
+            <form class="form-horizontal" role="form" action="<%=basePath%>/goodsBasicInfo/certainToAddGoodBasicInfo" method='post'>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <label for="goodsName" class="col-sm-2 control-label">商品名称</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3"/>
+                        <input type="text" class="form-control" id="goodsName" name="goodsName" placeholder="请输入商品名称"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <label for="date" class="col-sm-2 control-label">上架日期</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3"/>
+                        <input type="text" class="form-control" id="date" name="date" placeholder="请选择上架日期" readonly="readonly" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -45,71 +48,21 @@
     </div>
 </div>
 
-
-<div class="panel-body">
-    <form class="form-horizontal" action="TradeServlet" method='post' onsubmit="return check()">
-        <div class="form-group">
-            <label for="tradename" class="col-sm-3 control-label">商品名:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="商品名" name="tradename" id="tradename"/>
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label for="features" class="col-sm-3 control-label">商品特性:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="商品特性" name="features" id="features"/>
-
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label for="price" class="col-sm-3 control-label">商品价格:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="商品价格" name="price" id="price"/>
-
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label for="color" class="col-sm-3 control-label">商品颜色:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="商品颜色" name="color" id="color"/>
-
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label for="networktype" class="col-sm-3 control-label">网络制式:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="网络制式" name="networktype" id="networktype"/>
-
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label for="memory" class="col-sm-3 control-label">内存大小:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="内存大小" name="memory" id="memory"/>
-            </div>
-            <label class="col-sm-2 control-label"></label>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-1 control-label"></label>
-            <div class="col-sm-8">
-                <input type="hidden" name="action" value="addPhone"/>
-                <button type="submit" class="btn btn-success btn-add col-sm-offset-3">提交添加</button>
-            </div>
-
-        </div>
-
-    </form>
-</div>
+<script>
+    $(function () {
+        $('#date').datetimepicker({
+            format: "yyyy-mm-dd", // 选择日期后，文本框显示的日期格式
+            language: 'zh-CN', // 汉化
+            weekStart: 1,
+            todayBtn: 1,//显示‘今日’按钮
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,  //Number, String. 默认值：0, 'hour'，日期时间选择器所能够提供的最精确的时间选择视图。
+            clearBtn:true,//清除按钮
+            forceParse: 0
+        });
+    });
+</script>
 </body>
 </html>
