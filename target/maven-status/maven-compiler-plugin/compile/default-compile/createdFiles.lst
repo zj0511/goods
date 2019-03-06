@@ -1,0 +1,3 @@
+com\goods\service\impl\GoodsBasicInfoServiceImpl.class
+com\goods\controller\GoodsBasicInfoController.class
+com\goods\service\GoodsBasicInfoService.class

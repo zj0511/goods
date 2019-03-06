@@ -7,8 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.awt.print.Book;
 import java.util.List;
@@ -22,17 +24,22 @@ public class GoodsBasicInfoController {
     private GoodsBasicInfoService goodsBasicInfoService;
 
     @RequestMapping(value = "/addgood", method = RequestMethod.POST)
-    private String list(Model model) {
-        int result = goodsBasicInfoService.addOne(goodsBasicInfo).getList();
+    private String list(@RequestBody GoodsBasicInfo goodsBasicInfo, Model model) {
+        int result = goodsBasicInfoService.addOne(goodsBasicInfo);
+        if (result < 0) {
+            model.addAttribute("message", "添加失败");
+            return "addGood";
+        }
+        model.addAttribute("message", "添加成功");
+        List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
         model.addAttribute("list", list);
-        // list.jsp + model = ModelAndView
-        return "addOne";// WEB-INF/jsp/"list".jsp
+        return "list";
     }
 
----------------------
-    作者：李奕锋
-    来源：CSDN
-    原文：https://blog.csdn.net/qq598535550/article/details/51703190
-    版权声明：本文为博主原创文章，转载请附上博文链接！
-
+    @RequestMapping(value = "/listgoods", method = RequestMethod.GET)
+    private String list(Model model) {
+        List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
+        model.addAttribute("list", list);
+        return "list";
+    }
 }

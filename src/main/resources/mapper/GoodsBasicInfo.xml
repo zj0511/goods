@@ -4,8 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goods.dao.GoodsBasicInfoDao">
     <insert id="addOne" parameterType="GoodsBasicInfo">
-        insert into goods_basic_info (id, goods_name, belong_type, date, goods_price, total_price, goods_count, rest_goods, note)
-        values (#{id}, #{goodsName}, #{belongType}, #{date}, #{goodsPrice}, #{totalPrice}, #{goodsCount}, #{restGoods},
+        INSERT INTO goods_basic_info (id, goods_name, belong_type, date, goods_price, total_price, goods_count, rest_goods, note)
+        VALUES (#{id}, #{goodsName}, #{belongType}, #{date}, #{goodsPrice}, #{totalPrice}, #{goodsCount}, #{restGoods},
                 #{note})
     </insert>
+
+    <select id="getAllGoodsBasicInfo" resultType="GoodsBasicInfo">
+        SELECT
+            id,
+            goods_name,
+            belong_type,
+            date,
+            goods_price,
+            total_price,
+            goods_count,
+            rest_goods,
+            note
+        FROM
+            goods_basic_info
+        LIMIT #{offset}, #{limit}
+    </select>
 </mapper>
