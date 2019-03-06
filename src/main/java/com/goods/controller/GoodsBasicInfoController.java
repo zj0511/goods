@@ -28,18 +28,18 @@ public class GoodsBasicInfoController {
         int result = goodsBasicInfoService.addOne(goodsBasicInfo);
         if (result < 0) {
             model.addAttribute("message", "添加失败");
-            return "addGood";
+            return "goodBasicInfoAdd";
         }
         model.addAttribute("message", "添加成功");
         List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
         model.addAttribute("list", list);
-        return "list";
+        return "goodsBasicInfoList";
     }
 
     @RequestMapping(value = "/listGoodsBasicInfo", method = RequestMethod.GET)
     private String list(Model model) {
         List<GoodsBasicInfo> list = goodsBasicInfoService.getAllGoodsBasicInfo(0, 10);
         model.addAttribute("goodsBasicInfoList", list);
-        return "list";
+        return "goodsBasicInfoList";
     }
 }

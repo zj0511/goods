@@ -12,11 +12,11 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="collapse navbar-collapse">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div>
             <ul class="nav navbar-nav">
-                <li><a href="${pageContext.request.contextPath}/goodsBasicInfo/addGoodBasicInfo">添加商品信息</a></li>
+                <li><a href="goodBasicInfoAdd.jsp">添加商品信息</a></li>
             </ul>
         </div>
     </div>
