@@ -4,18 +4,20 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>商品基本信息管理</title>
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="<%=basePath%>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <script src="<%=basePath%>/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="<%=basePath%>/resources/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div>
             <ul class="nav navbar-nav">
+                <li><a href="<%=basePath%>/goodsBasicInfo/listGoodsBasicInfo">首页</a></li>
                 <li><a href="<%=basePath%>/goodsBasicInfo/addGoodBasicInfo">添加商品信息</a></li>
             </ul>
         </div>
