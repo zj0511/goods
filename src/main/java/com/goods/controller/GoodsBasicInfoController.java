@@ -29,7 +29,8 @@ public class GoodsBasicInfoController {
     }
 
     @RequestMapping(value = "/certainToAddGoodBasicInfo", method = RequestMethod.POST)
-    private String certainToAddGoodBasicInfo(@RequestBody GoodsBasicInfo goodsBasicInfo, Model model) {
+    private String certainToAddGoodBasicInfo(GoodsBasicInfo goodsBasicInfo, Model model) {
+        logger.info("提交添加" + goodsBasicInfo);
         int result = goodsBasicInfoService.addOne(goodsBasicInfo);
         if (result < 0) {
             model.addAttribute("message", "添加失败");

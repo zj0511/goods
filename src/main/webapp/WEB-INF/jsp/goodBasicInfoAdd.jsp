@@ -43,10 +43,32 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label><input type="checkbox"/>Remember me</label>
-                        </div>
+                    <label for="belongType" class="col-sm-2 control-label">所属分类</label>
+                    <div class="col-sm-10">
+                        <select id="belongType" class="form-control">
+                            <option value="">请选择</option>
+                            <option value="1">家用电器</option>
+                            <option value="2">电脑办公</option>
+                            <option value="3">家居家纺</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="goodsPrice" class="col-sm-2 control-label">单价</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="goodsPrice" name="goodsPrice" placeholder="请输入单价"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="goodsCount" class="col-sm-2 control-label">商品总量</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="goodsCount" name="goodsCount" placeholder="请输入商品总量"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="note" class="col-sm-2 control-label">其他说明</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="note" name="note" placeholder="其他说明"/>
                     </div>
                 </div>
                 <div class="form-group">
